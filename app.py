@@ -1,11 +1,23 @@
 # Imports
-import urllib2, json
+import urllib2, json, sys
 from programs.program import Program
 
 def main():
-    API_URL = 'https://apim.ikm.ucf.edu/V1/main/college/all/status/active/career/all/location/all'
+    """
+    The main execution block
 
-    response = urllib2.urlopen(API_URL)
+    This script accepts a single required argument:
+
+    <apim_url> string The URL of the APIM system
+    """
+    APIM_URL = ''
+
+    if len(sys.argv) < 2:
+        sys.exit('The APIM Error is required')
+    else:
+        APIM_URL = sys.argv[1]
+
+    response = urllib2.urlopen(APIM_URL)
 
     data = json.loads(response.read())
 
