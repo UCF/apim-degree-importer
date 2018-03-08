@@ -1,6 +1,7 @@
 # Imports
 import urllib2, json, sys
 from programs.program import Program
+from programs.subplan import Subplan
 
 def main():
     """
@@ -27,8 +28,8 @@ def main():
         degree = Program(d)
         degrees.append(degree)
 
-    for degree in degrees:
-        print degree.department
+    for degree in (x for x in degrees if x.has_online == True):
+        print degree.online_subplan.code
 
     return 0
 
