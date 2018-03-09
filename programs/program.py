@@ -2,6 +2,7 @@ from programs.subplan import Subplan
 
 class Program:
     name = ''
+    code = ''
     college = ''
     department = ''
     level = ''
@@ -26,6 +27,7 @@ class Program:
 
     def __init__(self, data):
         self.name = data['PlanName']
+        self.code = data['Plan']
         self.college = data['College_Full']
         self.department = data['Dept_Full']
         self.career = data['Career']
@@ -34,8 +36,6 @@ class Program:
         self.online = data['Meta Data'][0]['UCFOnline']
         self.thesis = data['Meta Data'][0]['TotThesis']
         self.subplans = []
-
-        _subplans = data['SubPlans']
 
         for sp in data['SubPlans']:
             subplan = Subplan(sp)

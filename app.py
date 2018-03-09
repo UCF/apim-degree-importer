@@ -29,7 +29,7 @@ def main():
         degrees.append(degree)
 
     for degree in (x for x in degrees if x.has_online == True):
-        print degree.online_subplan.code
+        print degree.code
 
     return 0
 
